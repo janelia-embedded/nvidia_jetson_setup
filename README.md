@@ -107,6 +107,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get autoremove
 sudo apt-get install xubuntu-desktop
+sudo apt-get purge ubuntu-desktop unity-*
 sudo apt-get install git
 sudo apt-get autoclean
 sudo reboot
