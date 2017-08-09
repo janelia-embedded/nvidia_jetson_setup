@@ -19,7 +19,16 @@ chmod +x JetPack-L4T-*.run
 
 Specify appropriate Jetson board.
 
-Choose Full Install.
+Choose Custom Install.
+
+Under "Install on Target", set the following to "no action":
+
+1) Compile CUDA Samples
+2) PerfKit
+3) TensorRT
+4) Multimedia API package
+5) cuDNN Package
+6) VisionWorks Pack
 
 Accept All Terms and Conditions.
 
@@ -58,7 +67,11 @@ To place system in Force USB Recovery Mode:
 
 7. Wait 2 seconds and release the RECOVERY FORCE button.
 
-8. Run lsusb on host PC to make sure NVidia Corp. device is listed.
+8. Press "ctrl-alt-t" to open a new terminal.
+
+9. Type "lsusb" then press "Enter" to make sure NVidia Corp. device is listed.
+
+10. Type "exit" then press "Enter" to close new terminal.
 
 ### Install on Jetson Board
 
@@ -106,7 +119,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 # Installation
 sudo apt-get update
-sudo apt-get install ros-kinetic-desktop-full
+sudo apt-get install ros-kinetic-desktop
 sudo apt-get clean
 # Initialize rosdep
 sudo apt-get install python-rosdep -y
