@@ -108,6 +108,7 @@ sudo apt-get dist-upgrade
 sudo apt-get autoremove
 sudo apt-get install xubuntu-desktop
 sudo apt-get install git
+sudo apt-get autoclean
 sudo reboot
 ```
 
@@ -120,7 +121,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C
 # Installation
 sudo apt-get update
 sudo apt-get install ros-kinetic-desktop
-sudo apt-get clean
+sudo apt-get autoclean
 # Initialize rosdep
 sudo apt-get install python-rosdep -y
 # ssl certificates can get messed up on TX1 for some reason
