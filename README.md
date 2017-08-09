@@ -105,11 +105,11 @@ Press <ctrl><alt>t to open a terminal in Unity.
 # Configure repositories
 sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get autoremove
 sudo apt-get install xubuntu-desktop
 sudo apt-get purge ubuntu-desktop unity-*
-sudo apt-get install git
+sudo apt-get autoremove
 sudo apt-get autoclean
+sudo apt-get install git
 sudo reboot
 ```
 
