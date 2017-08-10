@@ -149,3 +149,19 @@ usbcore.usbfs_memory_mb=1000
 to this file:
 
 /boot/extlinux/extlinux.conf
+
+### Install FlyCapture2
+
+<https://www.ptgrey.com/support/downloads>
+
+Download FlyCapture 2 for ARM64.
+
+```shell
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
+tar xvfz flycapture-<version>_arm.tar.gz
+cd flycapture-<version>_arm
+sudo ./flycap2-conf
+sudo reboot
+```
