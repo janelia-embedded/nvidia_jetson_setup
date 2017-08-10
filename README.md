@@ -165,3 +165,11 @@ cd flycapture-<version>_arm
 sudo ./flycap2-conf
 sudo reboot
 ```
+
+### Maximize Performance
+
+#### Maximizing CPU/GPU
+
+```shell
+sudo ~/jetson_clocks.sh
+```
