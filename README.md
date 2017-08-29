@@ -106,10 +106,69 @@ Press <ctrl><alt>t to open a terminal in Unity.
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install xubuntu-desktop
-sudo apt-get purge ubuntu-desktop unity-*
+sudo apt-get purge ubuntu-desktop unity*
 sudo apt-get autoremove
 sudo apt-get autoclean
 sudo reboot
+```
+
+### Modify extlinux.conf
+
+The steps above will allow you to stream your USB3 camera at a maximum image
+size of 2 MB. To acquire images greater than 2 MB in resolution, add the
+following to the APPEND line:
+
+usbcore.usbfs_memory_mb=1000
+
+to this file:
+
+/boot/extlinux/extlinux.conf
+
+### Install FlyCapture2
+
+#### Prerequisites
+
+```shell
+sudo apt-get update
+sudo apt-get install build-essential
+```
+
+##### Ubuntu 16.04
+
+```shell
+sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
+```
+
+##### Ubuntu 14.04
+
+```shell
+sudo apt-get install libraw1394-11 libgtkmm-2.4-1c2a libglademm-2.4-1c2a libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
+```
+
+#### Download FlyCapture 2
+
+<https://www.ptgrey.com/support/downloads>
+
+Select ARM64.
+
+
+```shell
+mkdir ~/flycapture
+mv ~/Downloads/flycapture* ~/flycapture/
+cd ~/flycapture
+tar xvfz flycapture-<version>_arm.tar.gz
+cd flycapture-<version>_arm
+sudo ./flycap2-conf
+sudo cp /lib/lib* /usr/lib/
+sudo reboot
+```
+
+### Maximize Performance
+
+#### Maximizing CPU/GPU
+
+```shell
+sudo ~/jetson_clocks.sh
 ```
 
 ### Install ROS
@@ -135,48 +194,4 @@ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 # Install rosinstall
 sudo apt-get install python-rosinstall -y
-```
-
-### Modify extlinux.conf
-
-The steps above will allow you to stream your USB3 camera at a maximum image
-size of 2 MB. To acquire images greater than 2 MB in resolution, add the
-following to the APPEND line:
-
-usbcore.usbfs_memory_mb=1000
-
-to this file:
-
-/boot/extlinux/extlinux.conf
-
-### Install FlyCapture2
-
-<https://www.ptgrey.com/support/downloads>
-
-Download FlyCapture 2 for ARM64.
-
-```shell
-mkdir ~/flycapture
-mv ~/Downloads/flycapture* ~/flycapture/
-cd ~/flycapture
-tar xvfz flycapture-<version>_arm.tar.gz
-cd flycapture-<version>_arm
-sudo ./flycap2-conf
-sudo reboot
-```
-
-Some versions may require installing these prerequisites:
-
-```shell
-sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
-```
-
-### Maximize Performance
-
-#### Maximizing CPU/GPU
-
-```shell
-sudo ~/jetson_clocks.sh
 ```
