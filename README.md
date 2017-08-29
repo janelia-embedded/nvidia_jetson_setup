@@ -172,3 +172,11 @@ sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
 ```
+
+### Maximize Performance
+
+#### Maximizing CPU/GPU
+
+```shell
+sudo ~/jetson_clocks.sh
+```
