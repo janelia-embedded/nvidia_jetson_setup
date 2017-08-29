@@ -105,11 +105,10 @@ Press <ctrl><alt>t to open a terminal in Unity.
 # Configure repositories
 sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get install xubuntu-desktop-full
+sudo apt-get install xubuntu-desktop
 sudo apt-get purge ubuntu-desktop unity-*
 sudo apt-get autoremove
 sudo apt-get autoclean
-sudo apt-get install git
 sudo reboot
 ```
 
@@ -157,11 +156,19 @@ to this file:
 Download FlyCapture 2 for ARM64.
 
 ```shell
-sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
+mkdir ~/flycapture
+mv ~/Downloads/flycapture* ~/flycapture/
+cd ~/flycapture
 tar xvfz flycapture-<version>_arm.tar.gz
 cd flycapture-<version>_arm
 sudo ./flycap2-conf
 sudo reboot
+```
+
+Some versions may require installing these prerequisites:
+
+```shell
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libgtkglextmm-x11-1.2-dev libgtkglextmm-x11-1.2 libusb-1.0-0
 ```
