@@ -197,3 +197,54 @@ source ~/.bashrc
 # Install rosinstall
 sudo apt-get install python-rosinstall -y
 ```
+
+### Arduino Interface
+
+#### Install Arduino IDE
+
+```shell
+sudo apt-get install arduino
+sudo usermod -aG dialout $USER
+```
+
+Download Linux udev rules:
+
+<https://www.pjrc.com/teensy/td_download.html>
+
+```shell
+sudo cp ~/Downloads/49-teensy.rules /etc/udev/rules.d/
+```
+
+#### Build Kernel and ttyACM Module
+
+```shell
+cd ~/git
+git clone https://github.com/jetsonhacks/buildJetsonTX1Kernel.git
+cd buildJetsonTX1Kernel
+./getKernelSources.sh
+```
+
+In the kernel configuration editor:
+
+Double-Click General Setup > Local version - append to kernel release
+
+Type: ACM
+
+Click Edit > Find
+
+Type: ACM
+
+Click 'USB Modem (CDC ACM) support' until it becomes a check mark.
+
+Click File > Save
+
+Click File > Quit
+
+```shell
+cd ~/git/buildJetsonTX1Kernel
+./makeKernel.sh
+./copyImage.sh
+sudo rm /usr/src/source_release.tbz2
+sudo rm -rf /usr/src/kernel
+sudo reboot
+```
