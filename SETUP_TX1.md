@@ -116,6 +116,8 @@ sudo apt-get install xubuntu-desktop
 sudo apt-get purge ubuntu-desktop unity*
 sudo apt-get autoremove
 sudo apt-get autoclean
+sudo dpkg-reconfigure tzdata
+sudo hwclock -w
 sudo reboot
 ```
 
@@ -250,20 +252,13 @@ cd ~/git
 git clone https://github.com/opencv/opencv.git
 cd opencv
 git checkout -b v3.4.0 3.4.0
-# This is for the test data
-cd ~/git
-git clone https://github.com/opencv/opencv_extra.git
-cd opencv_extra
-git checkout -b v3.4.0 3.4.0
-
-cd ~/git/opencv
 mkdir build
 cd build
 # Jetson TX1
 cmake \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUILD_PNG=OFF \
+    -DBUILD_PNG=ON \
     -DBUILD_TIFF=OFF \
     -DBUILD_TBB=OFF \
     -DBUILD_JPEG=OFF \
@@ -289,10 +284,11 @@ cmake \
     -DCUDA_ARCH_BIN=5.3 \
     -DCUDA_ARCH_PTX="" \
     -DINSTALL_C_EXAMPLES=ON \
-    -DINSTALL_TESTS=ON \
-    -DOPENCV_TEST_DATA_PATH=../opencv_extra/testdata \
+    -DINSTALL_TESTS=OFF \
     ../
 
 # Consider running jetson_clocks.sh before compiling
 make -j4
+
+sudo make install
 ```
