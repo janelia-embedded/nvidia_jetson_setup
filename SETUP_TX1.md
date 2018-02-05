@@ -159,6 +159,7 @@ sudo cp ~/Downloads/49-teensy.rules /etc/udev/rules.d/
 #### Build Kernel and ttyACM Module
 
 ```shell
+mkdir ~/git
 cd ~/git
 git clone https://github.com/jetsonhacks/buildJetsonTX1Kernel.git
 cd buildJetsonTX1Kernel
@@ -166,6 +167,8 @@ cd buildJetsonTX1Kernel
 ```
 
 In the kernel configuration editor:
+
+Click on Option > Show Name, Show Range, Show Data
 
 Double-Click General Setup > Local version - append to kernel release
 
@@ -197,33 +200,22 @@ sudo reboot
 ```shell
 sudo apt-get update
 sudo apt-get install build-essential
-```
-
-##### Ubuntu 16.04
-
-```shell
 sudo apt-get install libusb-1.0-0
 ```
 
 #### Download Spinnaker SDK
 
+Requires login.
+
 <https://www.ptgrey.com/support/downloads>
 
-Select ARM64.
-
+Select ARM64. Save file.
 
 ```shell
 mkdir ~/spinnaker
 mv ~/Downloads/spinnaker* ~/spinnaker/
 cd ~/spinnaker
-tar xvfz spinnaker-<version>_arm.tar.gz
+tar -xvfz spinnaker-<version>_arm.tar.gz
 cd spinnaker-<version>_arm
 sudo sh install_spinnaker_arm.sh
-
-
-sudo ./flycap2-conf
-sudo cp ./lib/libspinnaker* /usr/lib/
-sudo mkdir /usr/include/spinnaker
-sudo cp -r ./include/* /usr/include/spinnaker/
-sudo reboot
 ```
