@@ -215,7 +215,7 @@ Select ARM64. Save file.
 mkdir ~/spinnaker
 mv ~/Downloads/spinnaker* ~/spinnaker/
 cd ~/spinnaker
-tar -xvfz spinnaker-<version>_arm.tar.gz
+tar -xzvf spinnaker-<version>_arm.tar.gz
 cd spinnaker-<version>_arm
 sudo sh install_spinnaker_arm.sh
 ```
