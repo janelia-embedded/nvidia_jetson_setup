@@ -239,10 +239,11 @@ Select ARM64. Save file.
 mkdir ~/flycapture
 mv ~/Downloads/flycapture* ~/flycapture/
 cd ~/flycapture
-tar xzvf flycapture-<version>_arm.tar.gz
+tar -xzvf flycapture-<version>_arm.tar.gz
 cd flycapture-<version>_arm
 sudo ./flycap2-conf
-sudo ln -s ./lib/libflycapture* /usr/lib/
+sudo mkdir /usr/lib/flycapture
+sudo cp ./lib/libflycapture* /usr/lib/
 sudo mkdir /usr/include/flycapture
 sudo cp -r ./include/* /usr/include/flycapture/
 sudo reboot
