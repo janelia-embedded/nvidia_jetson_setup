@@ -195,9 +195,11 @@ sudo rm -rf /usr/src/kernel
 sudo reboot
 ```
 
-### Install Camera Driver Spinnaker SDK
+### Install Camera Drivers
 
-#### Prerequisites
+#### Spinnaker
+
+##### Prerequisites
 
 ```shell
 sudo apt-get update
@@ -205,7 +207,7 @@ sudo apt-get install build-essential
 sudo apt-get install libusb-1.0-0
 ```
 
-#### Download Spinnaker SDK
+##### Download Spinnaker SDK
 
 Requires login.
 
@@ -220,6 +222,30 @@ cd ~/spinnaker
 tar -xzvf spinnaker-<version>_arm.tar.gz
 cd spinnaker-<version>_arm
 sudo sh install_spinnaker_arm.sh
+```
+
+#### FlyCapture
+
+##### Download FlyCapture SDK
+
+Requires login.
+
+<https://www.ptgrey.com/support/downloads>
+
+Select ARM64. Save file.
+
+
+```shell
+mkdir ~/flycapture
+mv ~/Downloads/flycapture* ~/flycapture/
+cd ~/flycapture
+tar xzvf flycapture-<version>_arm.tar.gz
+cd flycapture-<version>_arm
+sudo ./flycap2-conf
+sudo ln -s ./lib/libflycapture* /usr/lib/
+sudo mkdir /usr/include/flycapture
+sudo cp -r ./include/* /usr/include/flycapture/
+sudo reboot
 ```
 
 ### Install OpenCV
