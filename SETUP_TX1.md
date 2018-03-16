@@ -283,7 +283,7 @@ sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 cd ~/git
 git clone https://github.com/opencv/opencv.git
 cd opencv
-git checkout -b v3.4.0 3.4.0
+git checkout -b v3.4.1 3.4.1
 mkdir build
 cd build
 # Jetson TX1
@@ -317,6 +317,21 @@ cmake \
     -DCUDA_ARCH_PTX="" \
     -DINSTALL_C_EXAMPLES=ON \
     -DINSTALL_TESTS=OFF \
+    -DENABLE_PROFILING:BOOL="1" \
+    -DCUDA_FAST_MATH:BOOL="1" \
+    -DBUILD_opencv_world:BOOL="1" \
+    -DM_LIBRARY:FILEPATH="/usr/lib/aarch64-linux-gnu/libm.so" \
+    -DOPENCV_DUMP_HOOKS_FLOW:BOOL="0" \
+    -DCUDA_SEPARABLE_COMPILATION:BOOL="0" \
+    -DBUILD_DOCS:BOOL="1" \
+    -DOPENCV_ENABLE_NONFREE:BOOL="1" \
+    -DBUILD_CUDA_STUBS:BOOL="1" \
+    -DBUILD_EXAMPLES:BOOL="1" \
+    -DBUILD_WITH_DEBUG_INFO:BOOL="1" \
+    -DANT_EXECUTABLE:FILEPATH="ANT_EXECUTABLE-NOTFOUND" \
+    -DBUILD_JPEG:BOOL="1" \
+    -DWITH_QT:BOOL="1" \
+    -DBUILD_PNG:BOOL="1"
     ../
 
 # Consider running jetson_clocks.sh before compiling
