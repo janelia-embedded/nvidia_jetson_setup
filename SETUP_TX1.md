@@ -247,7 +247,6 @@ cd ~/flycapture
 tar -xzvf flycapture-<version>_arm.tar.gz
 cd flycapture-<version>_arm
 sudo ./flycap2-conf
-sudo mkdir /usr/lib/flycapture
 sudo cp ./lib/libflycapture* /usr/lib/
 sudo mkdir /usr/include/flycapture
 sudo cp -r ./include/* /usr/include/flycapture/
