@@ -9,4 +9,4 @@ License:
     BSD
 
 
-[TX1 Setup](SETUP_TX1.md)
+[Jetson Setup](SETUP_JETSON.md)
