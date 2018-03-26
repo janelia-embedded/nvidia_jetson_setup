@@ -1,6 +1,5 @@
 # JETSON_SETUP
 
-
 ## JetPack
 
 Setup host PC with Xubuntu 16.04:
@@ -158,12 +157,6 @@ sudo cp ~/Downloads/49-teensy.rules /etc/udev/rules.d/
 
 #### Spinnaker
 
-##### Prerequisites
-
-```shell
-sudo apt-get install libusb-1.0-0
-```
-
 ##### Download Spinnaker SDK
 
 Requires login.
@@ -211,3 +204,13 @@ sudo mkdir /usr/include/flycapture
 sudo cp -r ./include/* /usr/include/flycapture/
 sudo reboot
 ```
+
+Right-click anywhere on desktop and select "Create Launcher...".
+
+Name: Camera
+Command: /home/nvidia/flycapture/flycapture.<VERSION>_arm64/bin/FlyCap2_arm
+Working Directory: /home/nvidia/flycapture/flycapture.<VERSION>_arm64/bin/
+Icon: camera-photo-symbolic
+Options: Run in terminal
+
+Click "Create".

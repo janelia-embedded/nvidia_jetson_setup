@@ -9,4 +9,4 @@ License:
     BSD
 
 
-[Jetson Setup](SETUP_JETSON.md)
+[Jetson Setup](JETSON_SETUP.md)
