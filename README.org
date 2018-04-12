@@ -7,4 +7,4 @@
   - License :: BSD
 
 * Documentation
-  [[JETSON_SETUP.md][Jetson Setup]]
+  [[JETSON_SETUP.org][Jetson Setup]]
