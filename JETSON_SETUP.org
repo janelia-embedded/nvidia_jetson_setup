@@ -1,6 +1,6 @@
 #+TITLE: JETSON_SETUP
 #+AUTHOR: Peter Polidoro
-#+EMAIL: peterpolidoro@gmail.com
+#+EMAIL: peter@polidoro.io
 
 * JetPack
 
